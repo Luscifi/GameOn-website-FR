@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const close = document.querySelectorAll(".close");
-const btn-submit = document.querySelectorAll(".btn-submit");
+const btnSubmit = document.querySelectorAll(".btn-submit");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -30,13 +30,16 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// moal form submit
-.forEach((btn) => span.addEventListener("click", closeModal));
+// modal form submit
+btnSubmit.forEach((btn) => btn.addEventListener("click", submitSuccess));
+// modal submit text 
 
-// form success
-function closeModal() {
-  modalbg.style.display = "none";
-}
+//show modal submit text
+const modalContent = document.querySelector(".modal-body");
+function submitSuccess() {
+  modalContent.innerHTML = "Merci pour votre inscription";
+  btnSubmit.textContent = "Fermer";
+};
 
 
 
