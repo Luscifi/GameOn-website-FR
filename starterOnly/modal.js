@@ -32,14 +32,14 @@ function closeModal() {
 
 // modal form submit
 btnSubmit.forEach((btn) => btn.addEventListener("click", submitSuccess));
-// modal submit text 
 
 //show modal submit text
 const modalContent = document.querySelector(".modal-body");
 function submitSuccess() {
   modalContent.innerHTML = "Merci pour votre inscription";
-  btnSubmit.textContent = "Fermer";
-};
-
-
-
+  const btnClose = document.createElement("input")
+  btnClose.value = "Fermer";
+  btnClose.type = "submit";
+  btnClose.classList.add("btn-submit")
+  modalContent.appendChild(btnClose);
+}

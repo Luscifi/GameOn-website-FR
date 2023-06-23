@@ -93,6 +93,9 @@
                   name="email"
                 /><br>
               </div>
+              <div>
+                <p id="ErrorEmail"></p>
+              </div>
               <div
                 class="formData">
                 <label>Date de naissance</label><br>
@@ -103,10 +106,15 @@
                   name="birthdate"
                 /><br>
               </div>
-              <div
-                class="formData">
+              <div>
+                <p id="ErrorBirthdate"></p>
+              </div>
+              <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              </div>
+              <div>
+                <p id="ErrorQuantityTournament"></p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -120,8 +128,7 @@
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
-                  New York</label
-                >
+                  New York</label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -178,7 +185,9 @@
                   Portland</label
                 >
               </div>
-
+              <div>
+                <p id="location"></p>
+              </div>
               <div
                 class="formData">
                 <input
