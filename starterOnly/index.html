@@ -41,14 +41,14 @@
             aux réservations... Places limitées !
           </p>
           <button class="btn-signup modal-btn">
-            je m'inscris
+            Je m'inscris
           </button>
         </div>
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
-          je m'inscris
+          Je m'inscris
         </button>
       </div>
 
@@ -73,6 +73,9 @@
                   minlength="2"
                 /><br>
               </div>
+              <div>
+                <p id="errorFirstName" class="errorForm"></p>
+              </div>
               <div
                 class="formData">
                 <label>Nom</label><br>
@@ -82,6 +85,9 @@
                   id="last"
                   name="last"
                 /><br>
+              </div>
+              <div>
+                <p id="errorLastName" class="errorForm"></p>
               </div>
               <div
                 class="formData">
@@ -94,7 +100,7 @@
                 /><br>
               </div>
               <div>
-                <p id="ErrorEmail"></p>
+                <p id="errorEmail" class="errorForm"></p>
               </div>
               <div
                 class="formData">
@@ -107,14 +113,14 @@
                 /><br>
               </div>
               <div>
-                <p id="ErrorBirthdate"></p>
+                <p id="errorbirthdate" class="errorForm"></p>
               </div>
               <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <div>
-                <p id="ErrorQuantityTournament"></p>
+                <p id="errorQuantity" class="errorForm"></p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -123,7 +129,7 @@
                   class="checkbox-input"
                   type="radio"
                   id="location1"
-                  name="location"
+                  name="location1"
                   value="New York"
                 />
                 <label class="checkbox-label" for="location1">
@@ -186,7 +192,7 @@
                 >
               </div>
               <div>
-                <p id="location"></p>
+                <p id="errorLocation" class="errorForm"></p>
               </div>
               <div
                 class="formData">
@@ -200,11 +206,14 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+                <div>
+                  <p id="errorCheckbox1" class="errorForm"></p>
+                </di>
                 <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
