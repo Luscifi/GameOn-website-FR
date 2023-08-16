@@ -11,9 +11,7 @@ function editNav() {
 // DOM Elements
 const modalContent = document.querySelector(".modal-body");
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const close = document.querySelectorAll(".close");
 const btnSubmit = document.querySelectorAll(".btn-submit");
 const form = document.getElementById("form");
 const firstName = document.getElementById("first");
@@ -37,7 +35,8 @@ const errorLocation = document.getElementById("errorLocation");
 const errorUserAgreement = document.getElementById("errorCheckbox1");
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+const modalBtn = document.querySelector(".modal-btn");
+modalBtn.addEventListener("click", launchModal);
 
 // launch modal form
 function launchModal() {
@@ -45,7 +44,8 @@ function launchModal() {
 }
 
 // close modal event
-close.forEach((span) => span.addEventListener("click", closeModal));
+const closeModalBtn = document.querySelector('.close');
+closeModalBtn.addEventListener("click", closeModal);
 
 
 // close modal form
@@ -120,6 +120,19 @@ function checkForm() {
   if (!quantityDetector) {
     errorQuantity.innerText = "La valeur saisie doit être un chiffre.";
     quantity.style.borderColor = "red";
+    formIsValid = false;
+  } else {
+    errorQuantity.innerText = "";
+    quantity.style.borderColor = "transparent";
+  }
+
+  // form error missing birthdate
+  // checking if null
+  console.log(birthdate.value);
+ let birthdateChecker = birthdate.value;
+  console.log(birthdateChecker);
+  if (!birthdateChecker ) {
+    errorbirthdate.innerText = "Une date d'anniverssaire doit être choisie."
     formIsValid = false;
   } else {
     errorQuantity.innerText = "";
