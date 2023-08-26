@@ -19,17 +19,13 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
-const location1 = document.getElementById("location1");
-const location2 = document.getElementById("location2");
-const location3 = document.getElementById("location3");
-const location4 = document.getElementById("location4");
-const location5 = document.getElementById("location5");
-const location6 = document.getElementById("location6");
 const userAgreement = document.getElementById("checkbox1");
+
+//DOM Elements errors
 const errorFirstName = document.getElementById("errorFirstName");
 const errorLastName = document.getElementById("errorLastName");
 const errorEmail = document.getElementById("errorEmail");
-const errorBirthdate = document.getElementById("errorBirthdate");
+const errorbzzirthdate = document.getElementById("errorBirthdate");
 const errorQuantity = document.getElementById("errorQuantity");
 const errorLocation = document.getElementById("errorLocation");
 const errorUserAgreement = document.getElementById("errorCheckbox1");
@@ -59,16 +55,35 @@ btnSubmit.forEach((btn) => btn.addEventListener("click", (event) => {
   checkForm();
 }));
 
-// show modal submit text
+// Show modal submit text
 function submitSuccess() {
-  modalContent.innerHTML = "Merci pour votre inscription";
+  // Clear existing modal content
+  modalContent.innerHTML = '';
+
+  // Create a new div for the success message
+  const newDiv = document.createElement("div");
+  newDiv.id = "thanks";
+
+  // Create a paragraph for the thank you message
+  const thanksMessage = document.createElement("p");
+  thanksMessage.innerText = "Merci pour votre inscription";
+  newDiv.appendChild(thanksMessage);
+
+  // Creating a button to close the modal and reload the page
   const btnClose = document.createElement("input");
   btnClose.value = "Fermer";
-  btnClose.type = "button"; // Change "submit" to "button"
+  btnClose.type = "button";
   btnClose.classList.add("btn-submit");
-  btnClose.addEventListener("click", closeModal); // Ajoutez cet écouteur d'événement
-  modalContent.appendChild(btnClose);
+  btnClose.addEventListener("click", function() {
+    closeModal();
+    location.reload(); // Reload the page
+  });
+  newDiv.appendChild(btnClose);
+
+  // Appending the new div to the modal content
+  modalContent.appendChild(newDiv);
 }
+
 
 // modal form submit
 function checkForm() {
@@ -135,18 +150,17 @@ function checkForm() {
     errorbirthdate.innerText = "Une date d'anniverssaire doit être choisie."
     formIsValid = false;
   } else {
-    errorQuantity.innerText = "";
-    quantity.style.borderColor = "transparent";
+    errorbirthdate.innerText = "";
   }
 
-  // form error location
-  let locationDetector = document.querySelector('input[name="location"]:checked');
-  if (locationDetector === null) {
-    errorLocation.innerText = "Une valeur doit être sélectionnée.";
-    formIsValid = false;
-  } else {
-    errorLocation.innerText = "";
-  }
+// form error location
+let selectedLocation = document.querySelector('input[name="location"]:checked');
+if (selectedLocation === null) {
+  errorLocation.innerText = "Une valeur doit être sélectionnée.";
+  formIsValid = false;
+} else {
+  errorLocation.innerText = "";
+}
 
   // form error user agreement
   let UserAgreementGranted = userAgreement.checked;
